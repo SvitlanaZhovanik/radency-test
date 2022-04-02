@@ -2,10 +2,10 @@ function makeSubarrays(arr, num) {
   const res = new Set();
   if (num === 0) res.add([]);
   else {
-    for (const pc of makeSubarrays(arr, num - 1)) {
+    for (const subArr of makeSubarrays(arr, num - 1)) {
       for (const e of arr) {
-        if (pc.indexOf(e) !== -1) break;
-        res.add([e, ...pc].sort((a, b) => a - b));
+        if (subArr.indexOf(e) !== -1) break;
+        res.add([e, ...subArr].sort((a, b) => a - b));
       }
     }
   }
